@@ -15,16 +15,16 @@ const Navbar = () => {
         </Link>
         <div className="flex gap-6 md:flex-col ">
             <Link to={"/"}>
-                <img src={homeNavIcon}/>
+                <img src={homeNavIcon} alt="Home navigation icon" />
             </Link>
             <Link to={"/movies"}>
-                <img src={moviesNavIcon}/>
+                <img src={moviesNavIcon} alt="Movies navigation icon" />
             </Link>
             <Link to={"tvseries"}>
-                <img src={tvSeriesNavIcon} />
+                <img src={tvSeriesNavIcon} alt="Tv Series navigation icon" />
             </Link>
             <Link to={"/bookmarked"}>
-                <img src={bookmarkNavIcon}/> 
+                <img src={bookmarkNavIcon} alt="Bookmarked navigation icon" /> 
             </Link>
         </div>
         <div >
