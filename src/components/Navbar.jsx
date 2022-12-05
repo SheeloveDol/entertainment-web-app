@@ -9,11 +9,11 @@ import avatar from "../assets/image-avatar.png";
 
 const Navbar = () => {
   return (
-    <div className="bg-[#161D2F] flex justify-between items-center  md:flex-col md:h-screen m-4 p-4 rounded-lg">
+    <div className="bg-[#161D2F] flex justify-between items-center  md:flex-col md:h-screen p-4 md:p-6 md:mr-5 rounded-lg">
         <Link to={"/"}>
             <img src={logo}/>
         </Link>
-        <div className="flex gap-6 md:flex-col">
+        <div className="flex gap-6 md:flex-col ">
             <Link to={"/"}>
                 <img src={homeNavIcon}/>
             </Link>
