@@ -8,7 +8,7 @@ function App() {
   
 
   return (
-    <div className="border-2 border-red-600 bg-[#10141E] text-white md:flex p-5">
+    <div className="border-2 border-red-600 bg-[#10141E] text-white md:flex p-4">
       <Navbar/>
       <div>
         <Search />
