@@ -1,8 +1,45 @@
-import React from 'react'
+import { Link } from "react-router-dom";
+import logo from "../assets/logo.svg";
+import homeNavIcon from "../assets/icon-nav-home.svg";
+import moviesNavIcon from "../assets/icon-nav-movies.svg";
+import tvSeriesNavIcon from "../assets/icon-nav-tv-series.svg";
+import bookmarkNavIcon from "../assets/icon-nav-bookmark.svg";
+import avatar from "../assets/image-avatar.png";
+
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
+    <div className="bg-[#161D2F] flex justify-between items-center  md:flex-col md:h-screen m-4 p-4 rounded-lg">
+        <Link to={"/"}>
+            <img src={logo}/>
+        </Link>
+        <div className="flex gap-6 md:flex-col">
+            <Link to={"/"}>
+                <img src={homeNavIcon}/>
+            </Link>
+            <Link to={"/movies"}>
+                <img src={moviesNavIcon}/>
+            </Link>
+            <Link to={"tvseries"}>
+                <img src={tvSeriesNavIcon} />
+            </Link>
+            <Link to={"/bookmarked"}>
+                <img src={bookmarkNavIcon}/> 
+            </Link>
+        </div>
+        <div >
+            <img 
+                className="
+                    border-white 
+                    border-2 
+                    rounded-full
+                    h-8" 
+                src={avatar} 
+                alt="Profile image"
+            />
+        </div>
+
+    </div>
   )
 }
 
