@@ -9,10 +9,10 @@ const Home = () => {
   return (
     <div className="border grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 justify-center">
       {
-        data.map((movie, i) => (
+        data.map((item, i) => (
           <MovieCard 
             key={i}
-            movie={movie} 
+            movie={item} 
           />
         ))
       }
