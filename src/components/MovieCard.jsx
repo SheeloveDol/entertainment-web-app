@@ -8,16 +8,24 @@ const MovieCard = ({movie}) => {
   // const url = movie.thumbnail.regular.small;
   const title = movie.title
     console.log(title)
-
+  const year = movie.year
+  console.log(year)
  
 
-   const getImageUrl = (name) => {
-    return new URL(`../assets/thumbnails/${title}.regular/small/jpg`, import.meta.url).href
+   const getImageUrl = () => {
+    return new URL(movie.thumbnail.regular.small, import.meta.url).href
    }
   
   return (
-    <div className="border border-green-400 p-10">
-      <img src={getImageUrl(title)}/>
+    <div className=" p-2">
+      
+      <img className="rounded-md" src={getImageUrl()}/>
+      <div>
+        {movie.year} . {movie.category} . {movie.rating}
+      </div>
+      <div className="">
+        {movie.title}
+      </div>
     </div>
   )
 }
