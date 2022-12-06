@@ -9,7 +9,7 @@ import avatar from "../assets/image-avatar.png";
 
 const Navbar = () => {
   return (
-    <div className="bg-[#161D2F] flex justify-between items-center  md:flex-col md:h-140 p-4 md:p-6 md:mr-5 rounded-lg">
+    <div className="bg-[#161D2F] flex justify-between items-center  md:flex-col md:max-h-76 p-4 md:p-6 md:mr-5 rounded-lg">
         <Link to={"/"}>
             <img src={logo}/>
         </Link>
