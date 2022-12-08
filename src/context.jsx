@@ -6,16 +6,34 @@ const AppContext = React.createContext();
 
 const ContextProvider = ({ children }) => {
     const [ data, setData ] = useState(entertainmentData);
-    const movies = [
-        {name: 1}, {name: 2}, {name:3}, {name: 4}, {name: 5}, {name: 6}, {name: 7}, {name: 8}, {name: 9}, {name: 10}
-    ];
+    const [ navButton, setNavButton ] = useState("home");
 
-    // useEffect(() => {
-    //     console.log(entertainmentData)
-    //     setData(entertainmentData)
-    // }, []);
+    const handleHomeIconClick = () => {
+        setNavButton('home');
+    }
 
-    return <AppContext.Provider value={{data, movies}}>
+    const handleMoviesIconClick = () => {
+        setNavButton('movies');
+    }
+
+    const handleTVSeriesIconClick = () => {
+        setNavButton('tvSeries');
+    }
+
+    const handleBookmarkedIconClick = () => {
+        setNavButton('bookmarked');
+    }
+    
+
+    return <AppContext.Provider value={{
+        data, 
+        navButton, 
+        handleHomeIconClick, 
+        handleMoviesIconClick,
+        handleTVSeriesIconClick,
+        handleBookmarkedIconClick, 
+        }}
+    >
         {children}
     </AppContext.Provider>
 }
