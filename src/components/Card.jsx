@@ -9,7 +9,7 @@ const Card = ({item}) => {
    }
   
   return (
-    <div className="p-2 font-outfit "> 
+    <div className=" font-outfit "> 
       <img className="rounded-md cursor-pointer" src={getImageUrl()}/>
       <div className="py-1 text-xs text-slate-500 flex items-center gap-2">
         <div>
@@ -20,11 +20,11 @@ const Card = ({item}) => {
           {item.category === "Movie" ? <img className="h-3" src={movieIcon}/> : <img className="h-3.5" src={tvSeriesIcon}/>} {item.category}
         </div>
         <div className='border border-gray-400 align-middle h-1'></div>
-        <div>
+        <div >
           {item.rating}
         </div>  
       </div>
-      <div >
+      <div className="text-sm">
         {item.title}
       </div>
     </div>
