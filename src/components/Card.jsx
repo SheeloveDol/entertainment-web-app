@@ -7,10 +7,31 @@ const Card = ({item}) => {
    const getImageUrl = () => {
     return new URL(item.thumbnail.regular.small, import.meta.url).href
    }
-  
+
+   const background = `'${item.thumbnail.regular.small}'`;
+   const example = [112, 'Beyond-Earth']
+   const Attempt = () => (example.map(item => <div className={`h-36 bg-${item}`}></div>))
+   const desperate = "'./assets/thumbnails/112/regular/small.jpg'"
+  //  console.log(attempt())
+   
+   console.log(getImageUrl())
+   console.log('---------------')
+   console.log(background)
+   console.log('---------------')
+   console.log(`'${item.thumbnail.regular.small}'`)
+   
   return (
     <div className=" font-outfit "> 
-      <img className="rounded-md cursor-pointer" src={getImageUrl()}/>
+      <div>
+      <div 
+      className={`h-36 w-full border bg-cover`}
+      style={{backgroundImage: `url('${getImageUrl()}')`}}
+      
+
+    >
+      Hello everyOne
+    </div>
+      </div>
       <div className="py-1 text-xs text-slate-500 flex items-center gap-2">
         <div>
           {item.year}
