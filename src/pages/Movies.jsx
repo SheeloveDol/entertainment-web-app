@@ -1,5 +1,4 @@
 import Card from "../components/Card"
-import CardList from "../components/CardList";
 import { useGlobalContext } from "../context";
 
 const Movies = () => {
