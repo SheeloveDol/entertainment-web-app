@@ -11,15 +11,15 @@ const Card = ({ item }) => {
 
 
   return (
-    <div className=" font-outfit ">
-      <divb >
+    <div className=" font-outfit lg:w-44  ">
+      <div>
         <div
-          className={`w-full group bg-cover cursor-pointer h-[7rem] rounded-lg`}
+          className={`w-full group bg-center bg-cover cursor-pointer h-[7rem] rounded-lg`}
           style={{ backgroundImage: `url('${getImageUrl()}')` }}
         >
           <PlayButton />
         </div>
-      </divb>
+      </div>
       <div className="py-1 text-[0.65rem] text-slate-500 flex items-center gap-2">
         <div>{item.year}</div>
         <div className="border border-gray-400 align-middle h-1"></div>
