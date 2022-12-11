@@ -7,7 +7,9 @@ const AppContext = React.createContext();
 const ContextProvider = ({ children }) => {
     const [ data, setData ] = useState(entertainmentData);
     const [ navButton, setNavButton ] = useState("home");
+    
 
+    
     const handleHomeIconClick = () => {
         setNavButton('home');
     }
@@ -23,6 +25,10 @@ const ContextProvider = ({ children }) => {
     const handleBookmarkedIconClick = () => {
         setNavButton('bookmarked');
     }
+
+    const handleBookmarkClick = (id) => {
+        
+    }
     
 
     return <AppContext.Provider value={{
@@ -32,6 +38,7 @@ const ContextProvider = ({ children }) => {
         handleMoviesIconClick,
         handleTVSeriesIconClick,
         handleBookmarkedIconClick, 
+        handleBookmarkClick,
         }}
     >
         {children}

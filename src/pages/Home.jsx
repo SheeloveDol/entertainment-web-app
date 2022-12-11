@@ -15,6 +15,7 @@ const Home = () => {
           data.map((item, i) => (
             <Card 
               key={i}
+              id={item.title}
               item={item} 
             />
           ))
