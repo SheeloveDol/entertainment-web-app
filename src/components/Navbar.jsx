@@ -61,7 +61,8 @@ const Navbar = () => {
                     border-white 
                     border-2 
                     rounded-full
-                    h-8" 
+                    h-8
+                    cursor-pointer" 
                 src={avatar} 
                 alt="Profile image"
             />

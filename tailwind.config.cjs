@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         'outfit': ['Outfit, sans-serif'],
       },
+      visibility: ["group-hover"],
     },
   },
   plugins: [],
