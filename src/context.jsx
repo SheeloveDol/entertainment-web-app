@@ -8,18 +8,26 @@ const ContextProvider = ({ children }) => {
     const newData = Object.values(entertainmentData)
     const [ data, setData ] = useState(newData);
     const [ navButton, setNavButton ] = useState("");
+    const [ searchField, setSearchField ] = useState('')
+
+    const handleSearchFieldChange = e => {
+        console.log(e.target.value)
+        setSearchField(e.target.value);
+      }
+
+    const filteredSearchDataForHomePage = data.filter((item) => item.title.toLowerCase().includes(searchField.toLowerCase())) 
     
-    const moviesOnlyData = data.filter((item) => item.category === "Movie");
+    const filteredSearchForMoviesPage = data.filter((item) => item.category === "Movie" && item.title.toLowerCase().includes(searchField.toLowerCase()))
 
 
-    const tvSeriesOnlyData = data.filter((item) => item.category === "TV Series");
+    const filteredSearchForTVSeriesPage = data.filter((item) => item.category === "TV Series" && item.title.toLowerCase().includes(searchField.toLowerCase()))
 
-    const bookmarkedMovies = data.filter((item) => (
-        (item.isBookmarked && item.category === 'Movie')
+    const filteredSearchBookmarkedMovies = data.filter((item) => (
+        (item.isBookmarked && item.category === 'Movie') && item.title.toLowerCase().includes(searchField.toLowerCase())
     ));
 
-    const bookmarkedTVSeries = data.filter((item) => (
-        (item.isBookmarked && item.category === 'TV Series')
+    const filteredSearchBookmarkedTVSeries = data.filter((item) => (
+        (item.isBookmarked && item.category === 'TV Series') && item.title.toLowerCase().includes(searchField.toLowerCase())
     ));
     
     const handleHomeIconClick = () => {
@@ -55,15 +63,18 @@ const ContextProvider = ({ children }) => {
     return <AppContext.Provider value={{
         data, 
         navButton,
-        moviesOnlyData, 
-        tvSeriesOnlyData,
-        bookmarkedMovies,
-        bookmarkedTVSeries,
+        filteredSearchForMoviesPage,
+        filteredSearchDataForHomePage,
+        filteredSearchForTVSeriesPage, 
+        filteredSearchBookmarkedMovies,
+        filteredSearchBookmarkedTVSeries,
         handleBookmarkClick,
         handleHomeIconClick, 
         handleMoviesIconClick,
+        handleSearchFieldChange,
         handleTVSeriesIconClick,
         handleBookmarkedIconClick, 
+        
         }}
     >
         {children}

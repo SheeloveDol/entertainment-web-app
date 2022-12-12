@@ -4,16 +4,19 @@ import Search from "../components/Search";
 
 const Movies = () => {
 
-  const { moviesOnlyData } = useGlobalContext();
-  // const movies = data.filter((item) => item.category === "Movie")
+  const { filteredSearchForMoviesPage, handleSearchFieldChange } = useGlobalContext();
+  
   
   return (
     <div>
-      <Search placeholder="Search for movies"/>
+      <Search 
+        placeholder="Search for movies"
+        handleChange={handleSearchFieldChange}
+      />
       <h2 className="text-lg mb-4" >Movies</h2>
       <div className=" grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 justify-center">
         {
-          moviesOnlyData.map((item, i) => (
+          filteredSearchForMoviesPage.map((item, i) => (
             <Card 
               key={i}
               item={item}

@@ -1,7 +1,7 @@
 import searchIcon from '../assets/icon-search.svg'
 
 
-const Search = ({placeholder}) => {
+const Search = ({placeholder, handleChange}) => {
   return (
     <div className=' flex gap-3 my-5'>
       <div className=''>
@@ -10,6 +10,7 @@ const Search = ({placeholder}) => {
       <input 
         placeholder={placeholder}
         className="bg-transparent w-[100%] focus:border-none"
+        onChange={handleChange}
       >
       
       </input>
