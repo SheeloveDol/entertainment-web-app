@@ -1,8 +1,19 @@
-import React from 'react'
+import searchIcon from '../assets/icon-search.svg'
 
-const Search = () => {
+
+const Search = ({placeholder}) => {
   return (
-    <div>Search bar</div>
+    <div className=' flex gap-3 my-5'>
+      <div className=''>
+        <img src={searchIcon} alt="" />
+      </div>
+      <input 
+        placeholder={placeholder}
+        className="bg-transparent w-[100%] focus:border-none"
+      >
+      
+      </input>
+    </div>
   )
 }
 

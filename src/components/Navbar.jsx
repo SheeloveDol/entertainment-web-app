@@ -13,7 +13,7 @@ const Navbar = () => {
     const { navButton, handleHomeIconClick, handleMoviesIconClick, handleTVSeriesIconClick, handleBookmarkedIconClick } = useGlobalContext();
 
   return (
-    <div className="bg-[#161D2F] flex justify-between items-center lg:flex-col  lg:h-[95vh] p-4 md:p-6 md:mr-5 rounded-lg flex-none ">
+    <div className="bg-[#161D2F] flex justify-between items-center lg:flex-col  lg:h-[95vh] p-4 md:p-6 lg:mr-5 rounded-lg flex-none ">
         <Link to={"/"}>
             <img src={logo}/>
         </Link>

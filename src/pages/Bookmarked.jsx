@@ -1,22 +1,16 @@
 import Card from "../components/Card"
+import Search from "../components/Search"
 import { useGlobalContext } from "../context"
 
 
 const Bookmarked = () => {
 
-  const { data } = useGlobalContext()
-
-  const bookmarkedMovies = data.filter((item) => (
-    (item.isBookmarked && item.category === 'Movie')
-  ));
-  
-
-  const bookmarkedTVSeries = data.filter((item) => (
-    (item.isBookmarked && item.category === 'TV Series')
-  ));
+  const { bookmarkedMovies, bookmarkedTVSeries } = useGlobalContext()
 
   return (
+    
     <div>
+      <Search placeholder="Search for bookmarked shows"/>
       <h2 className="text-lg mb-5">Bookmarked Movies</h2>
       <div className=" grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 justify-center mb-20">
         {
