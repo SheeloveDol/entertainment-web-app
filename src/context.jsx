@@ -7,15 +7,18 @@ const AppContext = React.createContext();
 const ContextProvider = ({ children }) => {
     const newData = Object.values(entertainmentData)
     const [ data, setData ] = useState(newData);
-    const [ navButton, setNavButton ] = useState("");
-    const [ searchField, setSearchField ] = useState('')
+    const [ navButton, setNavButton ] = useState("home");
+    const [ searchField, setSearchField ] = useState('');
 
-    const handleSearchFieldChange = e => {
-        console.log(e.target.value)
-        setSearchField(e.target.value);
-      }
+    useEffect(() => {
+        setSearchField('');
+    },[navButton])
 
-    const filteredSearchDataForHomePage = data.filter((item) => item.title.toLowerCase().includes(searchField.toLowerCase())) 
+    
+
+    const filteredSearchDataForHomePage = data.filter((item) => 
+        searchField === '' ? item : item.title.toLowerCase().includes(searchField.toLowerCase())
+    ) 
     
     const filteredSearchForMoviesPage = data.filter((item) => item.category === "Movie" && item.title.toLowerCase().includes(searchField.toLowerCase()))
 
@@ -29,34 +32,31 @@ const ContextProvider = ({ children }) => {
     const filteredSearchBookmarkedTVSeries = data.filter((item) => (
         (item.isBookmarked && item.category === 'TV Series') && item.title.toLowerCase().includes(searchField.toLowerCase())
     ));
+
+    const handleSearchFieldChange = e => {
+        setSearchField(e.target.value);
+    };
     
     const handleHomeIconClick = () => {
         setNavButton('home');
-    }
+    };
 
     const handleMoviesIconClick = () => {
         setNavButton('movies');
-    }
+    };
 
     const handleTVSeriesIconClick = () => {
         setNavButton('tvSeries');
-    }
+    };
 
     const handleBookmarkedIconClick = () => {
         setNavButton('bookmarked');
-    }
+    };
 
     const handleBookmarkClick = (e) => {
-        // const currentMovieIndex = data.findIndex((movie, index) => movie.index === id);
-
+        
         console.log(e.target.value)
 
-        
-        // const updatedMovie = {...data[currentMovieIndex], isBookmarked: (isBookmarked ? false : true)}
-
-        // const newMovieInfo = [...data];
-        // newMovieInfo[currentMovieIndex] = updatedMovie;
-        // setData(newMovieInfo)
     }
     
 

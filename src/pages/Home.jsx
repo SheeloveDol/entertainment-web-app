@@ -8,7 +8,7 @@ const Home = () => {
 
   // const movies = useGlobalContext()
   const { filteredSearchDataForHomePage, handleSearchFieldChange } = useGlobalContext();
-  const [ searchField, setSearchField ] = useState('');
+  
   
   // const filteredSearchDataForHomePage = data.filter((item) => item.title.toLowerCase().includes(searchField.toLowerCase()))  
 
@@ -21,8 +21,9 @@ const Home = () => {
         handleChange={handleSearchFieldChange}  
       />
       <h2 className="text-lg pb-4">Recomended for you</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 justify-center">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 justify-center min-h-screen">
         {
+          filteredSearchDataForHomePage.length === 0 ? "No results, please try again..." :
           filteredSearchDataForHomePage.map((item, index) => (
             
             <Card 

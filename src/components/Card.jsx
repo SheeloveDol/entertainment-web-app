@@ -19,7 +19,7 @@ const Card = ({ item, index}) => {
 
 
   return (
-    <div className="font-outfit lg:w-44">
+    <div className="font-outfit h-max lg:w-44">
       <div>
         <div
           className={`w-full group relative bg-center bg-cover cursor-pointer h-[7rem] rounded-lg`}

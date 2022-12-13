@@ -15,8 +15,9 @@ const TVseries = () => {
         handleChange={handleSearchFieldChange}
     />
       <h2 className="text-lg mb-4">TV Series</h2>
-      <div className=" grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 justify-center">
-        {
+      <div className=" grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 justify-center h-[100vh]">
+        { 
+          filteredSearchForTVSeriesPage.length === 0 ? "No results, please try again..." : 
           filteredSearchForTVSeriesPage.map((item, i) => (
             <Card 
               key={i}
