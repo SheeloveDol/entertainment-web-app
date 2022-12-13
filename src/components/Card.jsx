@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { useGlobalContext } from "../context";
 import movieIcon from "../assets/icon-category-movie.svg";
 import tvSeriesIcon from "../assets/icon-category-tv.svg";

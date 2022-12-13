@@ -1,4 +1,5 @@
 import Card from "../components/Card"
+import TrendingCard from "../components/TrendingCard";
 import CardList from "../components/CardList";
 import Search from "../components/Search"
 import { useGlobalContext } from "../context";
@@ -7,7 +8,7 @@ import { useState } from "react";
 const Home = () => {
 
   // const movies = useGlobalContext()
-  const { filteredSearchDataForHomePage, handleSearchFieldChange } = useGlobalContext();
+  const { filteredSearchDataForHomePage, handleSearchFieldChange, trendingTitles } = useGlobalContext();
   
   
   // const filteredSearchDataForHomePage = data.filter((item) => item.title.toLowerCase().includes(searchField.toLowerCase()))  
@@ -20,6 +21,20 @@ const Home = () => {
         placeholder="Search for movies or TV series"
         handleChange={handleSearchFieldChange}  
       />
+      <div className="overflow-auto">
+        <h2 className="text-lg pb-4">Trending</h2>
+        <div className="flex gap-5 h-[12rem]   ">
+          {
+            trendingTitles.map((item, index) => (
+              <TrendingCard 
+                key={index}
+                item={item}
+              />
+            ))
+          }
+        </div>
+      </div>
+
       <h2 className="text-lg pb-4">Recomended for you</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 justify-center min-h-screen">
         {

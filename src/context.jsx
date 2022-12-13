@@ -14,16 +14,20 @@ const ContextProvider = ({ children }) => {
         setSearchField('');
     },[navButton])
 
+
+    
     
 
     const filteredSearchDataForHomePage = data.filter((item) => 
         searchField === '' ? item : item.title.toLowerCase().includes(searchField.toLowerCase())
-    ) 
+    );
     
-    const filteredSearchForMoviesPage = data.filter((item) => item.category === "Movie" && item.title.toLowerCase().includes(searchField.toLowerCase()))
+    const trendingTitles = filteredSearchDataForHomePage.filter((item) => item.isTrending );
+
+    const filteredSearchForMoviesPage = data.filter((item) => item.category === "Movie" && item.title.toLowerCase().includes(searchField.toLowerCase()));
 
 
-    const filteredSearchForTVSeriesPage = data.filter((item) => item.category === "TV Series" && item.title.toLowerCase().includes(searchField.toLowerCase()))
+    const filteredSearchForTVSeriesPage = data.filter((item) => item.category === "TV Series" && item.title.toLowerCase().includes(searchField.toLowerCase()));
 
     const filteredSearchBookmarkedMovies = data.filter((item) => (
         (item.isBookmarked && item.category === 'Movie') && item.title.toLowerCase().includes(searchField.toLowerCase())
@@ -32,6 +36,8 @@ const ContextProvider = ({ children }) => {
     const filteredSearchBookmarkedTVSeries = data.filter((item) => (
         (item.isBookmarked && item.category === 'TV Series') && item.title.toLowerCase().includes(searchField.toLowerCase())
     ));
+
+    
 
     const handleSearchFieldChange = e => {
         setSearchField(e.target.value);
@@ -59,10 +65,14 @@ const ContextProvider = ({ children }) => {
 
     }
     
+    console.log(filteredSearchDataForHomePage)
+    console.log('---------------')
+    console.log(trendingTitles)
 
     return <AppContext.Provider value={{
         data, 
         navButton,
+        trendingTitles,
         filteredSearchForMoviesPage,
         filteredSearchDataForHomePage,
         filteredSearchForTVSeriesPage, 

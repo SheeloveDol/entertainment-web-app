@@ -8,7 +8,7 @@ function App() {
   
 
   return (
-    <div className="font-outfit bg-[#10141E] border text-white lg:flex p-4 sm:p-4  lg:justify-center min-w-[300px] ">
+    <div className="font-outfit border border-red-600 bg-[#10141E] border text-white  p-4 sm:p-4  lg:justify-center min-w-[300px] ">
       <Navbar/>
       <div>
         
