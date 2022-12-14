@@ -59,18 +59,18 @@ const ContextProvider = ({ children }) => {
         setNavButton('bookmarked');
     };
 
-    const handleBookmarkClick = (e) => {
-        
-        console.log(e.target.value)
-
+    const handleBookmarkClick = (title) => {
+        setData(
+            data.map((item) => {
+                if (item.title === title) {
+                    return {...item, isBookmarked: !item.isBookmarked }
+                }
+                return item
+            })
+        )
     }
     
-    console.log(filteredSearchDataForHomePage)
-    console.log('---------------')
-    console.log(trendingTitles)
-
-    return <AppContext.Provider value={{
-        data, 
+    return <AppContext.Provider value={{ 
         navButton,
         trendingTitles,
         filteredSearchForMoviesPage,
