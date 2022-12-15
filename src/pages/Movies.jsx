@@ -8,13 +8,13 @@ const Movies = () => {
   
   
   return (
-    <div>
+    <div className="lg:ml-28">
       <Search 
         placeholder="Search for movies"
         handleChange={handleSearchFieldChange}
       />
       <h2 className="text-lg mb-4" >Movies</h2>
-      <div className=" grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 justify-center min-h-[100vh] ">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 justify-center">
         {
           filteredSearchForMoviesPage.length === 0 ? "No results, please try again..." :
           filteredSearchForMoviesPage.map((item, i) => (

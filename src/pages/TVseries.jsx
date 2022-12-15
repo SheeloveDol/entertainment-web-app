@@ -9,13 +9,13 @@ const TVseries = () => {
   const { filteredSearchForTVSeriesPage, handleSearchFieldChange } = useGlobalContext()
 
   return (
-    <div>
+    <div className="lg:ml-24">
       <Search 
         placeholder="Search for TV series"
         handleChange={handleSearchFieldChange}
     />
       <h2 className="text-lg mb-4">TV Series</h2>
-      <div className=" grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 justify-center h-[100vh]">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 justify-center ">
         { 
           filteredSearchForTVSeriesPage.length === 0 ? "No results, please try again..." : 
           filteredSearchForTVSeriesPage.map((item, i) => (

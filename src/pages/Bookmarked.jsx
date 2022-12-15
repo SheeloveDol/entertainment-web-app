@@ -9,7 +9,7 @@ const Bookmarked = () => {
 
   return (
     
-    <div className="min-h-screen">
+    <div className="lg:ml-28">
       <Search 
         placeholder="Search for bookmarked shows"
         handleChange={handleSearchFieldChange}  
@@ -28,7 +28,7 @@ const Bookmarked = () => {
       </div>
 
       <h2 className="text-lg mb-5">Bookmarked TV Series</h2>
-      <div className=" grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 justify-center">
+      <div className=" grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 justify-center">
         {
           filteredSearchBookmarkedTVSeries.length === 0 ? "No results, please try again" : 
           filteredSearchBookmarkedTVSeries.map((item, i) =>  (

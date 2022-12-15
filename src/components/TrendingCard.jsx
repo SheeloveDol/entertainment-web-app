@@ -13,10 +13,10 @@ const TrendingCard = ({ item, index }) => {
   };
 
   return (
-    <div className="font-outfit h-full flex ">
+    <div className="font-outfit h-full flex">
       
         <div
-          className={`w-72 group relative  bg-center bg-cover cursor-pointer h-36  rounded-lg gap-3 `}
+          className={`w-80 group relative  bg-center bg-cover cursor-pointer h-full  rounded-lg gap-3 `}
           style={{ backgroundImage: `url('${getImageUrl()}')` }}
         >
           <div
