@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context";
 import logo from "../assets/logo.svg";
-import homeNavIcon from "../assets/icon-nav-home.svg";
-import moviesNavIcon from "../assets/icon-nav-movies.svg";
-import tvSeriesNavIcon from "../assets/icon-nav-tv-series.svg";
-import bookmarkNavIcon from "../assets/icon-nav-bookmark.svg";
 import avatar from "../assets/image-avatar.png";
 
 const Navbar = () => {
@@ -27,7 +23,7 @@ const Navbar = () => {
             xmlns="http://www.w3.org/2000/svg"
             width="20"
             height="20"
-            className={`hover:fill-[#FC4747] ${
+            className={`lg:hover:fill-[#FC4747] ${
               navButton === "home" ? "fill-white" : "fill-[#5A698F]"
             }`}
             onClick={handleHomeIconClick}
@@ -40,7 +36,7 @@ const Navbar = () => {
             width="20"
             height="20"
             xmlns="http://www.w3.org/2000/svg"
-            className={`hover:fill-[#FC4747] ${
+            className={`lg:hover:fill-[#FC4747] ${
               navButton === "movies" ? "fill-white" : "fill-[#5A698F]"
             }`}
             onClick={handleMoviesIconClick}
@@ -53,7 +49,7 @@ const Navbar = () => {
             width="20"
             height="20"
             xmlns="http://www.w3.org/2000/svg"
-            className={`hover:fill-[#FC4747] ${
+            className={`lg:hover:fill-[#FC4747] ${
               navButton === "tvSeries" ? "fill-white" : "fill-[#5A698F]"
             }`}
             onClick={handleTVSeriesIconClick}
@@ -66,7 +62,7 @@ const Navbar = () => {
             width="17"
             height="20"
             xmlns="http://www.w3.org/2000/svg"
-            className={`hover:fill-[#FC4747] ${
+            className={`lg:hover:fill-[#FC4747] ${
               navButton === "bookmarked" ? "fill-white" : "fill-[#5A698F]"
             }`}
             onClick={handleBookmarkedIconClick}
