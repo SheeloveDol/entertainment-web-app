@@ -1,7 +1,7 @@
 import { useGlobalContext } from "../context";
 import PlayButton from "./PlayButton";
-import fullBookmark from "../assets/icon-bookmark-full.svg";
-import emptyBookmark from "../assets/icon-bookmark-empty.svg";
+import fullBookmark from "/assets/icon-bookmark-full.svg";
+import emptyBookmark from "/assets/icon-bookmark-empty.svg";
 
 const TrendingCard = ({ item, index }) => {
   const { handleBookmarkClick } = useGlobalContext();
@@ -15,7 +15,7 @@ const TrendingCard = ({ item, index }) => {
       
         <div
           className={`w-80 group relative  bg-center bg-cover cursor-pointer h-full  rounded-lg gap-3 `}
-          style={{ backgroundImage: `url('${getImageUrl()}')` }}
+          style={{ backgroundImage: `url('${item.thumbnail.trending.large}')` }}
         >
           <div
             className="h-5 w-5 absolute top-3 right-3 flex justify-center items-center rounded-full bg-slate-900 bg-opacity-25 p-1.5"

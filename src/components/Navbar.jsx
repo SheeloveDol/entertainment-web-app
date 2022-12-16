@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context";
-import logo from "../assets/logo.svg";
-import avatar from "../assets/image-avatar.png";
+import logo from "/assets/logo.svg";
+import avatar from "/assets/image-avatar.png";
 
 const Navbar = () => {
   const {

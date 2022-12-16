@@ -1,4 +1,4 @@
-import searchIcon from "../assets/icon-search.svg";
+import searchIcon from "/assets/icon-search.svg";
 
 const Search = ({ placeholder, handleChange }) => {
   const handleSearchKeyDown = (event) => {
@@ -23,3 +23,5 @@ const Search = ({ placeholder, handleChange }) => {
 };
 
 export default Search;
+
+
