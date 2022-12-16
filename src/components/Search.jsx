@@ -1,21 +1,25 @@
-import searchIcon from '../assets/icon-search.svg'
+import searchIcon from "../assets/icon-search.svg";
 
+const Search = ({ placeholder, handleChange }) => {
+  const handleSearchKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.target.blur();
+    }
+  };
 
-const Search = ({placeholder, handleChange}) => {
   return (
-    <div className=' flex gap-3 my-5'>
-      <div className=''>
+    <div className=" flex gap-3 my-5">
+      <div>
         <img src={searchIcon} alt="" />
       </div>
-      <input 
+      <input
         placeholder={placeholder}
-        className="bg-transparent w-[100%] focus:border-none"
+        className="bg-transparent w-[100%] focus:outline-none focus:border-b"
         onChange={handleChange}
-      >
-      
-      </input>
+        onKeyDown={handleSearchKeyDown}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;

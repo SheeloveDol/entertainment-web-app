@@ -1,99 +1,110 @@
-import React, { useContext, useEffect, useState } from 'react';
-import entertainmentData from './data/entertainmentData';
+import React, { useContext, useEffect, useState } from "react";
+import entertainmentData from "./data/entertainmentData";
 const AppContext = React.createContext();
 
-
-
 const ContextProvider = ({ children }) => {
-    const newData = Object.values(entertainmentData)
-    const [ data, setData ] = useState(newData);
-    const [ navButton, setNavButton ] = useState("home");
-    const [ searchField, setSearchField ] = useState('');
+  const newData = Object.values(entertainmentData);
+  const [data, setData] = useState(newData);
+  const [navButton, setNavButton] = useState("home");
+  const [searchField, setSearchField] = useState("");
 
-    useEffect(() => {
-        setSearchField('');
-    },[navButton])
+  useEffect(() => {
+    setSearchField("");
+  }, [navButton]);
 
+  const filteredSearchDataForHomePage = data.filter((item) =>
+    searchField === ""
+      ? item
+      : item.title.toLowerCase().includes(searchField.toLowerCase())
+  );
 
-    
-    
+  const trendingTitles = data.filter((item) => item.isTrending);
 
-    const filteredSearchDataForHomePage = data.filter((item) => 
-        searchField === '' ? item : item.title.toLowerCase().includes(searchField.toLowerCase())
+  const filteredSearchForMoviesPage = data.filter(
+    (item) =>
+      item.category === "Movie" &&
+      item.title.toLowerCase().includes(searchField.toLowerCase())
+  );
+
+  const filteredSearchForTVSeriesPage = data.filter(
+    (item) =>
+      item.category === "TV Series" &&
+      item.title.toLowerCase().includes(searchField.toLowerCase())
+  );
+
+  const filteredSearchBookmarkedMovies = data.filter(
+    (item) =>
+      item.isBookmarked &&
+      item.category === "Movie" &&
+      item.title.toLowerCase().includes(searchField.toLowerCase())
+  );
+
+  const filteredSearchBookmarkedTVSeries = data.filter(
+    (item) =>
+      item.isBookmarked &&
+      item.category === "TV Series" &&
+      item.title.toLowerCase().includes(searchField.toLowerCase())
+  );
+
+  const handleSearchFieldChange = (e) => {
+    setSearchField(e.target.value);
+  };
+
+  const handleHomeIconClick = () => {
+    setNavButton("home");
+  };
+
+  const handleMoviesIconClick = () => {
+    setNavButton("movies");
+  };
+
+  const handleTVSeriesIconClick = () => {
+    setNavButton("tvSeries");
+  };
+
+  const handleBookmarkedIconClick = () => {
+    setNavButton("bookmarked");
+  };
+
+  const handleBookmarkClick = (title) => {
+    setData(
+      data.map((item) => {
+        if (item.title === title) {
+          return { ...item, isBookmarked: !item.isBookmarked };
+        }
+        return item;
+      })
     );
-    
-    const trendingTitles = filteredSearchDataForHomePage.filter((item) => item.isTrending );
+  };
 
-    const filteredSearchForMoviesPage = data.filter((item) => item.category === "Movie" && item.title.toLowerCase().includes(searchField.toLowerCase()));
-
-
-    const filteredSearchForTVSeriesPage = data.filter((item) => item.category === "TV Series" && item.title.toLowerCase().includes(searchField.toLowerCase()));
-
-    const filteredSearchBookmarkedMovies = data.filter((item) => (
-        (item.isBookmarked && item.category === 'Movie') && item.title.toLowerCase().includes(searchField.toLowerCase())
-    ));
-
-    const filteredSearchBookmarkedTVSeries = data.filter((item) => (
-        (item.isBookmarked && item.category === 'TV Series') && item.title.toLowerCase().includes(searchField.toLowerCase())
-    ));
-
-    
-
-    const handleSearchFieldChange = e => {
-        setSearchField(e.target.value);
-    };
-    
-    const handleHomeIconClick = () => {
-        setNavButton('home');
-    };
-
-    const handleMoviesIconClick = () => {
-        setNavButton('movies');
-    };
-
-    const handleTVSeriesIconClick = () => {
-        setNavButton('tvSeries');
-    };
-
-    const handleBookmarkedIconClick = () => {
-        setNavButton('bookmarked');
-    };
-
-    const handleBookmarkClick = (title) => {
-        setData(
-            data.map((item) => {
-                if (item.title === title) {
-                    return {...item, isBookmarked: !item.isBookmarked }
-                }
-                return item
-            })
-        )
-    }
-    
-    return <AppContext.Provider value={{ 
+  return (
+    <AppContext.Provider
+      value={{
+        data,
         navButton,
         trendingTitles,
         filteredSearchForMoviesPage,
         filteredSearchDataForHomePage,
-        filteredSearchForTVSeriesPage, 
+        filteredSearchForTVSeriesPage,
         filteredSearchBookmarkedMovies,
         filteredSearchBookmarkedTVSeries,
         handleBookmarkClick,
-        handleHomeIconClick, 
+        handleHomeIconClick,
         handleMoviesIconClick,
         handleSearchFieldChange,
         handleTVSeriesIconClick,
-        handleBookmarkedIconClick, 
-        
-        }}
+        // handleSearchKeyDown,
+        handleBookmarkedIconClick,
+      }}
     >
-        {children}
+      {children}
     </AppContext.Provider>
-}
+  );
+};
 
 //Setting up custom hook to improve readibilty when exporting to components
 export const useGlobalContext = () => {
-    return useContext(AppContext)
-}
+  return useContext(AppContext);
+};
 
-export { AppContext, ContextProvider }
+export { AppContext, ContextProvider };

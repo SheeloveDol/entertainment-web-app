@@ -1,6 +1,4 @@
 import { useGlobalContext } from "../context";
-import movieIcon from "../assets/icon-category-movie.svg";
-import tvSeriesIcon from "../assets/icon-category-tv.svg";
 import PlayButton from "./PlayButton";
 import fullBookmark from "../assets/icon-bookmark-full.svg";
 import emptyBookmark from "../assets/icon-bookmark-empty.svg";
