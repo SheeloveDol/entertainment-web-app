@@ -15,7 +15,7 @@ const Bookmarked = () => {
         handleChange={handleSearchFieldChange}  
       />
       <h2 className="text-lg mb-5">Bookmarked Movies</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 justify-center mb-20 ">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 justify-center mb-20 ">
         {
           filteredSearchBookmarkedMovies.length === 0 ? "No results, please try again" : 
           filteredSearchBookmarkedMovies.map((item, i) =>  (
