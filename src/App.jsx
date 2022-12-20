@@ -15,7 +15,6 @@ function App() {
         <div>
           
           <Routes>
-            { /* <Route path="/" element={<Login />} /> */ }
             <Route path="/" element={<Home />} />
             <Route path="/movies" element={<Movies />} />
             <Route path="/tvseries" element={<TVseries />} />
