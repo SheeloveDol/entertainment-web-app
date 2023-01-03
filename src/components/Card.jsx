@@ -20,9 +20,9 @@ const Card = ({ item, index }) => {
             onClick={() => handleBookmarkClick(item.title)}
           >
             {item.isBookmarked === true ? (
-              <img src={fullBookmark} />
+              <img src={fullBookmark} alt='Bookmark full icon' />
             ) : (
-              <img src={emptyBookmark} />
+              <img src={emptyBookmark} alt='Bookmark empty icon' />
             )}
           </div>
           <PlayButton />
@@ -33,9 +33,9 @@ const Card = ({ item, index }) => {
         <div className="border border-gray-400 align-middle rounded-full h-0.5 w-0.5"></div>
         <div className="flex gap-1 h-4 items-center">
           {item.category === "Movie" ? (
-            <img className="h-3" src={movieIcon} />
+            <img className="h-3" src={movieIcon} alt='Movie icon' />
           ) : (
-            <img className="h-3.5" src={tvSeriesIcon} />
+            <img className="h-3.5" src={tvSeriesIcon} alt='TV series icon' />
           )}{" "}
           {item.category}
         </div>
